@@ -1,17 +1,11 @@
 #################
 ## Eclipse
 #################
-*.pydevproject
-.project
+*.class
+WebContent/WEB-INF/classes/
 .metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
-.class
-.settings/
-.loadpath
+target/
+.DS_Store
+bin
+build
+!etc/lib/build

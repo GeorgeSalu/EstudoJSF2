@@ -6,11 +6,14 @@
 
 <h:head>
 	<title>Tabelas com dataTable</title>
+	<h:outputStylesheet library="css" name="estilo.css" />
 </h:head> 
 <body> 
 	<h:dataTable value="#{controleTabela.lista}" 
-				 var="obj" border="1" cellpadding="3" cellspacing="3" frame="box">
+				 var="obj" captionClass="tituloTabela"
+				 styleClass="tabela" headerClass="tabelaCabecalho" footerClass="tabelaRodape">
 		
+		<f:facet name="caption">Exemplo com estilos css</f:facet>
 		<f:facet name="header">Listagem de pessoas</f:facet>
 		<f:facet name="footer">Total de registros : #{controleTabela.lista.size()}</f:facet>
 		

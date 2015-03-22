@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form>
+	<h:dataTable value="#{controleTabela.lista}" var="obj" frame="box" rules="all" cellpadding="3">
+		
+		<f:facet name="header">Listagem de Pessoas</f:facet>
+		<f:facet name="footer">Total de registros: #{controleTabela.lista.size()}
+			<br/>
+			<h:commandButton action="#{controleTabela.salvar()}" value="Salvar Alteracoes" />
+		</f:facet>
+	
+		<h:column>
+			<f:facet name="header">Editar</f:facet>
+			<h:selectBooleanCheckbox value="#{obj.editando}" onclick="submit()"/>		
+		</h:column>
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+			<h:outputText value="#{obj.id}" rendered="#{!obj.editando}" />
+			<h:inputText value="#{obj.id}" rendered="#{obj.editando}" size="5"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">NOME</f:facet>
+			<h:outputText value="#{obj.nome}" rendered="#{!obj.editando}" />
+			<h:inputText value="#{obj.nome}" rendered="#{obj.editando}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">TELEFONE</f:facet>
+			<h:outputText value="#{obj.telefone}" rendered="#{!obj.editando}" />
+			<h:inputText value="#{obj.telefone}" rendered="#{obj.editando}"/>
+		</h:column>
+		<h:column>
+			<h:commandLink action="#{controleTabela.excluir(obj)}" value="Excluir" 
+							onclick="if (!confirm('Confirma a exclusao da pessoa #{obj.nome}')) return false"/>
+		</h:column>
+	</h:dataTable>
+	</h:form>
+</body> 
+</html>

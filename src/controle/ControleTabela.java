@@ -25,7 +25,17 @@ public class ControleTabela implements Serializable {
 		lista.add(new Pessoa(8, "Joao 8", "(99) 9999-9999"));
 		lista.add(new Pessoa(9, "Joao 9", "(99) 9999-9999"));
 	}
+	
+	public String salvar(){
+		for(Pessoa obj : lista) obj.setEditando(false);
+		return null;
+	}
 
+	public String excluir(Pessoa obj){
+		lista.remove(obj);
+		return null;
+	}
+	
 	public List<Pessoa> getLista() {
 		return lista;
 	}

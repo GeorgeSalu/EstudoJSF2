@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Validacao Hibernate</title>
+</h:head> 
+<body> 
+	<h:form>
+		<h:messages />
+		
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome " />
+			<h:inputText value="#{controleUsuario.usuario.nome}" size="40" />
+			
+			<h:outputLabel value="Senha " />
+			<h:inputSecret value="#{controleUsuario.usuario.senha}" size="40" />
+			
+			<h:outputLabel value="CPF " />
+			<h:inputText value="#{controleUsuario.usuario.cpf}" size="40" />
+			
+			<h:outputLabel value="Renda " />
+			<h:inputText value="#{controleUsuario.usuario.renda}" size="40" />
+			
+			<h:outputLabel value="Email " />
+			<h:inputText value="#{controleUsuario.usuario.email}" size="40" />
+			
+			<h:outputLabel value="Pagina " />
+			<h:inputText value="#{controleUsuario.usuario.pagina}" size="40" />
+			
+			<f:facet name="footer">
+				<h:commandButton value="Enviar" action="#{controleUsuario.recebeDados()}" />
+			</f:facet>
+		</h:panelGrid>
+	</h:form>
+</body> 
+</html>

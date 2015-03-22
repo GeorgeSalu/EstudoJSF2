@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Validacao Padrao JSF 2</title>
+</h:head> 
+<body> 
+	<h:form>
+		<h:messages />
+		
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Name : " for="nome" />
+			<h:inputText value="#{controleValidacao.nome}" id="nome" size="40"/>
+			<h:message for="nome"/>
+			
+			<h:outputLabel value="Telefone : " for="telefone" />
+			<h:inputText value="#{controleValidacao.telefone}" id="telefone" size="40"/>
+			<h:message for="telefone"/>
+			
+			<h:outputLabel value="Email : " for="email" />
+			<h:inputText value="#{controleValidacao.email}" id="email" size="40"/>
+			<h:message for="email"/>
+			
+			<h:outputLabel value="Idade : " for="idade" />
+			<h:inputText value="#{controleValidacao.idade}" id="idade" size="40"/>
+			<h:message for="idade"/>
+			
+			<h:outputLabel value="Nota : " for="nota" />
+			<h:inputText value="#{controleValidacao.nota}" id="nota" size="40"/>
+			<h:message for="nota"/>
+			
+			<h:commandButton value="Cadastrar" action="#{controleValidacao.processaDados()}" />
+		</h:panelGrid>
+	</h:form>
+</body> 
+</html>

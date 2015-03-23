@@ -6,17 +6,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<head>
-<title>JSF 2</title>
-</head>
-<body>
-	<h:form>
-		<h:outputLabel value="#{controlePrincipal.mensagem}" />
-
-
-		<h:commandLink value="Sobre navegacao estatica" action="sobre" />
+	<ui:composition template="/templates/template.xhtml">
 		
-		<h:commandLink value="Sobre redirecionada" action="#{controlePrincipal.sobreRedirecionada()}" />
-	</h:form>
-</body>
+		<ui:define name="tituloJanela">Sistema com jsf 2</ui:define>
+		<ui:define name="conteudo">
+			Seja bem vindo ao sistema
+		</ui:define>
+		
+	</ui:composition>
+
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Conversores</title>
+</h:head> 
+<body> 
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Valor " for="valor" />
+			<h:inputText value="#{controlePagamento.pagamento.valor}" size="15" 
+							id="valor" required="true" requiredMessage="Informe o valor" >
+				<f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>				
+			</h:inputText>
+			<h:message for="valor"/>
+			
+			<h:outputLabel value="Data " for="data" />
+			<h:inputText value="#{controlePagamento.pagamento.data}" size="10" 
+							id="data" required="true" requiredMessage="Informe a data" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>				
+			</h:inputText>
+			
+			<f:facet name="footer">
+				<h:commandButton action="#{controlePagamento.adicionarPagamento()}" value="Efetuar Pagamento" />
+			</f:facet>
+			
+		</h:panelGrid>
+	</h:form>
+	
+	<h:dataTable value="#{controlePagamento.lista}" var="obj">
+		<h:column>
+			<f:facet name="header">Valor</f:facet>
+			<h:outputText value="#{obj.valor}" >
+				<f:convertNumber pattern="R$ ###,###,##0.00"/>
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Data Pagamento</f:facet>
+			<h:outputText value="#{obj.data}" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:outputText>
+		</h:column>
+	</h:dataTable>
+	
+</body> 
+</html>

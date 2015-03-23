@@ -14,6 +14,11 @@
 				<f:converter converterId="converterCalendar"/>
 			</h:inputText>
 			
+			<h:outputLabel value="Cidade " />
+			<h:selectOneMenu value="#{controleConversores.cidade}" converter="#{controleConversores.converterCidade}">
+				<f:selectItems value="#{controleConversores.listaCidade}"/>
+			</h:selectOneMenu>
+			
 			<f:facet name="footer">
 				<h:commandButton action="#{controleConversores.lerDados()}" value="Enviar" />
 			</f:facet>

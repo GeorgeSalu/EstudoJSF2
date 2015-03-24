@@ -6,9 +6,9 @@
 
 	<h:form>
 		<h:panelGrid columns="1">
-			<h:commandLink action="Home" value="index" />
-			<h:commandLink action="/meusComponentes" value="Componentes" />
-			<h:commandLink action="#{controleCRUDAjax.listar()}" value="CrudAjax" />
+			<h:commandLink action="Home" value="#{msgs['menu.home']}" />
+			<h:commandLink action="/meusComponentes" value="#{msgs['menu.componentes']}" />
+			<h:commandLink action="#{controleCRUDAjax.listar()}" value="#{msgs['menu.crud']}" />
 		</h:panelGrid>
 	</h:form>
 	 

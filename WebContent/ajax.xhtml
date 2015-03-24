@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Ajax</title>
+</h:head> 
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Texto : " />
+			<h:inputText value="#{controleajax.texto}" id="texto" />
+			
+			<h:outputLabel value="Texto Invertido" />
+			<h:outputLabel value="#{controleajax.saida}" id="saida" />
+			
+			<f:facet name="footer">
+				<h:commandButton action="#{controleajax.inverteTexto()}" value="Inverter" >
+					<f:ajax render="saida" execute="@all" />
+				</h:commandButton>
+			</f:facet>
+			
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

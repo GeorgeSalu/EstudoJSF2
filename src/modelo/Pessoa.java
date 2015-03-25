@@ -9,10 +9,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Pessoa implements Serializable {
 	
 	private Integer id;
-	@NotEmpty(message="O nome deve se informado")
-	@Length(max=40,message="O nome nao deve ser maior que {max} caracteres")
+	@NotEmpty(message="{crud.pessoa.nome.notempty}")
+	@Length(max=40,message="{crud.pessoa.nome.length}")
 	private String nome;
-	@Email(message="informe um email valido")
+	@Email(message="{crud.pessoa.email}")
 	private String email;
 
 	public Pessoa() {

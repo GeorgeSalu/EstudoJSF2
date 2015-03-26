@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Edicao de Funcionarios</title>
+</h:head> 
+<h:body>
+	<h:form>
+		<h:messages />
+		
+		<h:panelGrid columns="2">
+			<f:facet name="header">Edicao de formularios</f:facet>
+			<f:facet name="footer">
+				<div align="center">
+					<h:commandButton action="#{controleFuncionario.cancelar()}" value="Cancelar" immediate="true"/>
+					<h:commandButton action="#{controleFuncionario.gravar()}" value="Gravar" />
+				</div>
+			</f:facet>
+			
+			<h:outputLabel value="ID" />
+			<h:inputText value="#{controleFuncionario.objeto.id}" readonly="true" />
+			
+			<h:outputLabel value="Nome" />
+			<h:inputText value="#{controleFuncionario.objeto.nome}" />
+			
+			<h:outputLabel value="CPF" />
+			<h:inputText value="#{controleFuncionario.objeto.cpf}" />
+			
+			<h:outputLabel value="Email" />
+			<h:inputText value="#{controleFuncionario.objeto.email}" />
+			
+			<h:outputLabel value="Salario" />
+			<h:inputText value="#{controleFuncionario.objeto.salario}" />
+			
+			<h:outputLabel value="Nascimento" />
+			<h:inputText value="#{controleFuncionario.objeto.nascimento}" >
+				<f:converter converterId="converterCalendar"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Ativo" />
+			<h:selectBooleanCheckbox value="#{controleFuncionario.objeto.ativo}" />
+			
+			<h:outputLabel value="Nome de Usuario" />
+			<h:inputText value="#{controleFuncionario.objeto.nomeUsuario}" />
+			
+			<h:outputLabel value="CPF" />
+			<h:inputText value="#{controleFuncionario.objeto.cpf}" />
+			
+			<h:outputLabel value="Senha" />
+			<h:inputSecret value="#{controleFuncionario.objeto.senha}" redisplay="true"/>
+			
+			<h:outputLabel value="Grupo" />
+			<h:selectOneMenu value="#{controleFuncionario.objeto.grupo}" converter="#{controleFuncionario.converterGrupo}">
+				<f:selectItem itemLabel="Selecione um grupo" noSelectionOption="true"/>
+				<f:selectItems value="#{controleFuncionario.daoGrupo.listarTodos()}" />
+			</h:selectOneMenu>
+			
+			<h:outputLabel value="Setor" />
+			<h:selectOneMenu value="#{controleFuncionario.objeto.setor}" converter="#{controleFuncionario.converterSetor}">
+				<f:selectItem itemLabel="Selecione um setor" noSelectionOption="true"/>
+				<f:selectItems value="#{controleFuncionario.daoSetor.listarTodos()}" />
+			</h:selectOneMenu>
+			
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

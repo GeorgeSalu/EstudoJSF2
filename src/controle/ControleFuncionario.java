@@ -4,7 +4,15 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
+import org.apache.commons.io.IOUtils;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
+
+import util.UtilErros;
+import util.UtilMensagens;
 import conversores.ConverterGrupo;
 import conversores.ConverterSetor;
 import beans.Funcionario;
@@ -60,6 +68,26 @@ public class ControleFuncionario implements Serializable {
 	public String excluir(Funcionario obj){
 		dao.excluir(obj);
 		return "listar";
+	}
+	
+	public void enviarFoto(FileUploadEvent event){
+		try{
+			byte[] foto = IOUtils.toByteArray(event.getFile().getInputstream());
+			objeto.setFoto(foto);
+			UtilMensagens.mensagensInformacao("Arquivo enviado com sucesso! "+event.getFile().getFileName());
+		}catch(Exception ex){
+			UtilMensagens.mensagensErro("Error ao enviar arquivo : "+UtilErros.getMensagemErro(ex));
+		}
+	}
+	
+	public StreamedContent getImagemDinamica(){
+		String strid = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id_imagem");
+		if(strid != null){
+			Integer id = Integer.parseInt(strid);
+			Funcionario obj = dao.localizar(id);
+			return obj.getImagem();
+		}
+		return new DefaultStreamedContent();
 	}
 	
 	public FuncionarioDAO getDao() {

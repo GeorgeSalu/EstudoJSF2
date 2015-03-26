@@ -2,13 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 	<title>Edicao de Funcionarios</title>
 </h:head> 
 <h:body>
-	<h:form>
+	<h:form enctype="multipart/form-data">
 		<h:messages />
 		
 		<h:panelGrid columns="2">
@@ -63,6 +64,15 @@
 				<f:selectItem itemLabel="Selecione um setor" noSelectionOption="true"/>
 				<f:selectItems value="#{controleFuncionario.daoSetor.listarTodos()}" />
 			</h:selectOneMenu>
+			
+			<h:outputLabel value="Foto : " />
+			<p:fileUpload id="uploadImagem" mode="advanced" update="messages.imagem" auto="true" label="Selecionar"
+								fileUploadListener="#{controleFuncionario.enviarFoto()}" />
+			
+			
+			<h:outputLabel value="" />
+			<p:graphicImage value="#{controleFuncionario.objeto.imagem}" id="imagem"
+								 style=" width:60px;heigth:60px " cache="false"  />
 			
 		</h:panelGrid>
 	</h:form>

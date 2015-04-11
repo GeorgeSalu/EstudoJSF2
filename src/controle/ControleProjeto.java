@@ -98,6 +98,12 @@ public class ControleProjeto implements Serializable {
 		obj.setGestor(gestor);
 		objeto.adicionarFuncionario(obj);
 		addFunc = false;
+		
+		cargaHoraria = null;
+		funcionario = null;
+		inicioParticipacao = null;
+		fimParticipacao = null;
+		gestor = null;
 	}
 	
 	public ProjetoDAO getDao() {

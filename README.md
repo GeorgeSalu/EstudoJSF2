@@ -1,6 +1,7 @@
 Projeto de Gerenciamento de Projetos
 =================================
 projeto de estudo da tecnologia de jsf 2 na IDE Eclipse,Tecnologia
+
 	- jsf 2.2.8
 	- postgresql 
 	- primefaces 4.0

@@ -5,7 +5,24 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
 <h:head></h:head> 
-<body> 
-
-</body> 
+<h:body>
+	<h:form>
+		<h:panelGrid >
+			<f:facet name="header">Dados Do Usuario</f:facet>
+			<f:facet name="footer">
+				<div align="center">
+					<h:commandButton value="Login" action="#{controleLogin.efetuarLogin()}" />
+				</div>
+			</f:facet>
+			
+			<h:outputLabel value="Usuario" />
+			<h:outputText value="#{controleLogin.usuario}" />
+			
+			<h:outputLabel value="Senha" />
+			<h:outputText value="#{controleLogin.senha}" />
+			
+			
+		</h:panelGrid>
+	</h:form>
+</h:body>
 </html>

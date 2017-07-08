@@ -1,4 +1,4 @@
-Projeto de Gerenciamento de Projetos
+Projeto ( Gerenciamento de Projetos )
 =================================
 projeto de estudo da tecnologia de jsf 2 na IDE Eclipse,Tecnologia
 
@@ -11,9 +11,9 @@ projeto de estudo da tecnologia de jsf 2 na IDE Eclipse,Tecnologia
 
 Foi abordado
 -------------------- 
-	- validaÁ„o 
-	- conversıes 
+	- valida√ß√£o 
+	- convers√µes 
 	- facelets
 	- ajax
-	- internacionalizaÁ„o 
+	- internacionaliza√ß√£o 
 	- API Validation (Hibernate Validation)
